@@ -1,0 +1,102 @@
+
+<div class="loginone-wrapper">
+   
+    
+    <div class="login-content text-center">
+        <h2>Customer Register</h2>
+
+        <div class="login-inner-wrapper-2">
+        
+            <form class="login-form" [formGroup]="form"  (ngSubmit)="doregister(form.value)">
+                <img src="../../assets/login-background.jpg" class="bg" width="50px;" height="50px;">
+                <br>
+               <br>
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" >
+                            <input type="text" name="firstname" [(ngModel)]="firstname" formControlName="firstname" class="form-control form-control-lg input-square" placeholder="firstname" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" >
+                            <input type="text" name="lastname" [(ngModel)]="lastname" formControlName="lastname" class="form-control form-control-lg input-square" placeholder="lastname" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" >
+                            <input type="email" name="email" [(ngModel)]="email" formControlName="email" class="form-control form-control-lg input-square" placeholder="email" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" >
+                            <input type="text" name="mobile" [(ngModel)]="mobile" formControlName="mobile" class="form-control form-control-lg input-square" placeholder="Contact number" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                   
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password"  [(ngModel)]="password" formControlName="password" class="form-control form-control-lg input-square" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-block btn-lg btn-square">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+                
+               
+
+
+            </form>
+            <!-- login form closed -->
+      
+        <!-- login inner wrapper closed -->
+  
+    <!-- login content closed -->
+  </div>
+ 
+  <!-- login-one- wrapper closed -->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  

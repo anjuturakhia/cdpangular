@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+      <li class="nav-item active">
+          <a class="nav-link" (click)="logout();">Logout</a>
+        </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li> -->
+    </ul>
+   
+  </div>
+</nav>
+
+
+
+
+
+
+<!-- main app container -->
+<div class="card text-center m-3">
+    <h3 class="card-header">Products Lists</h3>
+    <div class="card-body">
+      
+      
+      
+
+      
+<div class="container">
+
+  <div class="row product-list" style="margin: 1em 0;">
+
+    <!-- START : Product Card -->
+    <div class="col-sm-12 col-md-6 col-lg-4 product-list__item" *ngFor="let product of pageOfItems; let i = index;">
+      <div class="card mb-4 shadow-sm pd-5">
+        <div class="product-list__image">
+         <img class="card-img-top" src="{{product.url}}" alt="Card image cap" height="200" width="225">
+        </div>
+
+        <div class="card-body">
+          <h6>{{product.name }} / Rs. {{product.price}}</h6>
+         Description:  <h6>{{product.description }}</h6>
+         Discount % :  <h6>{{product.discount_percent }}</h6>
+
+
+          <!-- <p class="card-text">{{product.description}}</p> -->
+          
+            <div class="">
+              <button type="button " class="btn btn-primary" (click)="addToCart($event, product.id)">Add to cart</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- END : Product Card -->
+
+  </div>
+</div>
+
+
+    </div>
+    <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="items" [pageSize] ='5' (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</div>
+
+
+
+
+

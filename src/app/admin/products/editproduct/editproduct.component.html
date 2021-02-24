@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="chk-block">
+      <div class="chk-block-title">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h2 class="text-capitalize">Edit  Product</h2>
+          </div>
+          <button [routerLink]="['../../']" class="btn btn-danger btn-sm pull-right"><i class="fa fa-reply"></i> Back</button>
+        </div>
+      </div>
+      <div class="chk-block-content">
+    
+          <div *ngIf="!loader">
+  
+        <form role="form" #myForm="ngForm" (ngSubmit)="save(myForm.value)" accept-charset="UTF-8" novalidate>
+  
+          <div class="input-group">
+            <input type="hidden" class="form-control" name="id" #id="ngModel" [(ngModel)]="heroes.id">
+          </div>
+  
+  
+          <div class="form-group row  has-feedback">
+            <label class="col-12 col-md-2 col-xl-2 col-form-label" for="text-input">Title<span class='*'>*</span></label>
+            <div class="col-12 col-md-10 col-xl-10">
+              <input type="text" class="form-control" maxlength="55" required name="title" 
+              [(ngModel)]="heroes.name" placeholder="Enter title (max: 55 characters)">
+             
+            </div>
+          </div>
+         
+          <div class="form-group row has-feedback"
+           >
+            <label class="col-12 col-md-2 col-xl-2 col-form-label" for="text-input">Image: </label>
+            <div class="col-12 col-md-10 col-xl-10">
+              <input type="file" required  [(ngModel)]="image" 
+                [ngModelOptions]="{standalone: true}" accept="image/*" (change)="onFileChange($event.target.files)" />
+                <div>
+                  <img [src]="imageUrl" width="200" height="200">
+                </div>
+            </div>
+          </div>
+  
+         
+          <div class="form-group row  has-feedback"
+          >
+            <label class="col-12 col-md-2 col-xl-2 col-form-label" for="text-input">Description<span
+                class='*'>*</span></label>
+            <div class="col-12 col-md-10 col-xl-10">
+              <input [(ngModel)] = "description" type="text" class="form-control" maxlength="55" required name="description" id="description"
+                  placeholder="Enter description">
+             
+            </div>
+          </div>
+
+
+
+          <div class="form-group row  has-feedback"
+          >
+            <label class="col-12 col-md-2 col-xl-2 col-form-label" for="text-input">Price<span
+                class='*'>*</span></label>
+            <div class="col-12 col-md-10 col-xl-10">
+              <input [(ngModel)] = "heroes.price" type="text" class="form-control"  required name="price" id="price"
+                  placeholder="Enter price">
+             
+            </div>
+          </div>
+
+
+          <div class="form-group row  has-feedback"
+          >
+            <label class="col-12 col-md-2 col-xl-2 col-form-label" for="text-input">Discount Percentage<span
+                class='*'>*</span></label>
+            <div class="col-12 col-md-10 col-xl-10">
+              <input [(ngModel)] = "heroes.discount_percent" type="text" class="form-control"  required name="discountpercent" id="discountpercent"
+                  placeholder="Enter discount pecent">
+             
+            </div>
+          </div>
+
+  
+          <button  class="btn btn-success pull-right" data-toggle="modal"
+            (click)="save1(myForm.value)">Save <i
+              class="fa fa-caret-right"></i></button>
+  
+          <br><br>
+        </form>
+          </div>
+        <!-- <div [innerHTML]="mycontent"></div> -->
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- <ng4-loading-spinner> </ng4-loading-spinner> -->

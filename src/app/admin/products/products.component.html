@@ -1,0 +1,74 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['../../admin/products']">Products</a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" (click)="logout();">Logout</a>
+          </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+      </ul>
+     
+    </div>
+  </nav>
+
+  
+
+
+  
+
+<div class="text-right">
+    <a routerLink="../../admin/products/addproduct" class="btn btn-primary btn-sm"><i class="fa fa-user"></i> Add Product
+      </a>&nbsp;
+    
+  </div>
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount percent</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr *ngFor="let product of products; let i = index;">
+            <td scope="row">{{i+1}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.discount_percent}}</td>
+            <td><button type="button" class="btn btn-primary" [routerLink]="['../../admin/products/editproduct/',product.id]" >Edit</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="getConfirmation(product.id);">Delete</button>
+             <td *ngIf="product.status == 1;else other_content">
+                <button type="button" class="btn btn-success" (click)="getDisable(product.id,product.status);">Enabled</button>
+                
+            </td>   
+             <ng-template #other_content>
+                <td><button type="button" class="btn btn-warning" (click)="getDisable(product.id,product.status);">Disabled</button>
+                </td>
+             </ng-template>
+
+            
+          </tr>
+         
+        
+     
+    </tbody>
+  </table>

@@ -1,0 +1,90 @@
+
+
+<div class="loginone-wrapper">
+   
+    <div class="alert alert-primary" role="alert">
+        This is a primary alert—check it out!
+      </div>
+      
+    <div class="login-content text-center">
+
+        <h2>Customer login</h2>
+        
+        <div class="login-inner-wrapper-2">
+        
+            <form class="login-form" [formGroup]="form"  (ngSubmit)="doLogin(form.value)">
+                <img src="../../assets/login-background.jpg" class="bg" width="50px;" height="50px;">
+                <br>
+               <br>
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" >
+                            <input type="text" name="username" [(ngModel)]="username" formControlName="username" class="form-control form-control-lg input-square" placeholder="username" required>
+                        </div>
+                    </div>
+                </div>
+
+                   
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password"  [(ngModel)]="password" formControlName="password" class="form-control form-control-lg input-square" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-block btn-lg btn-square">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <p *ngIf="!authenticationFlag" class="abc">{{message}}</p>
+               
+                <a (click)="signup()">
+                    New Customer?? Sign Up
+                  </a>
+
+                  <br>
+                  <br>
+
+                  <a (click)="adminlogin()">
+                    Admin login
+                  </a>
+
+                  <br>
+                  <br>
+                  <a (click)="adminregister()">
+                    Admin Register
+                  </a>
+
+
+            </form>
+            <!-- login form closed -->
+      
+        <!-- login inner wrapper closed -->
+  
+    <!-- login content closed -->
+  </div>
+ 
+  <!-- login-one- wrapper closed -->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
