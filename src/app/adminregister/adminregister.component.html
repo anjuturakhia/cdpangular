@@ -1,6 +1,15 @@
 
 <div class="loginone-wrapper">
    
+    <div *ngIf="errorflag" class="alert alert-danger" role="alert">
+        
+        <ul> {{errormessageemail}} </ul> 
+        
+         <ul>{{errormessagepassword}}</ul>
+ 
+ 
+       </div>
+   
   
     <div class="login-content text-center">
         <h2>Admin Register</h2>
@@ -17,7 +26,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group" >
-                            <input type="text" name="firstname" [(ngModel)]="firstname" formControlName="firstname" class="form-control form-control-lg input-square" placeholder="firstname" required>
+                            <input type="text" name="firstname" [(ngModel)]="firstname" formControlName="firstname" class="form-control form-control-lg input-square" placeholder="Name" required>
                         </div>
                     </div>
                 </div>

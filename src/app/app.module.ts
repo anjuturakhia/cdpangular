@@ -12,7 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ProductsComponent } from './admin/products/products.component';

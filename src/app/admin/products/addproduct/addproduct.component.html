@@ -12,6 +12,19 @@
       <br>
       <br>
       <div class="chk-block-content">
+
+        <div *ngIf="errorflag" class="alert alert-danger" role="alert">
+        
+          <ul> {{errortitle}} </ul> 
+           <ul>{{errorimage}}</ul>
+           <ul>{{errordiscription}}</ul>
+           <ul>{{errorprice}}</ul>
+           <ul>{{errordiscount_percent}}</ul>
+   
+   
+         </div>
+     
+    
   
         <div *ngIf="loader" class="heavy">
           <!-- <img src="assets/animate/tenor.gif" style="width: 140px; margin-left: 35%;"> -->
@@ -19,7 +32,7 @@
   
         <div *ngIf="!loader">
   
-          <form role="form" #myForm="ngForm" enctype="multipart/form-data" (ngSubmit)="save(myForm.value)"
+          <form role="form" #myForm="ngForm" enctype="multipart/form-data" (ngSubmit)="save1(myForm.value)"
             accept-charset="UTF-8" novalidate>
             <div class="form-group row  has-feedback"
              >
@@ -77,8 +90,8 @@
               </div>
             </div>
 
-            <button type="button"  data-toggle="modal" 
-              (click)="save1(myForm.value)" class="btn btn-success pull-right">Save <i
+            <button type="submit"  data-toggle="modal" 
+              (click)="save1(myForm.value)" [disabled]="!myForm.valid"  class="btn btn-success pull-right">Save <i
                 class="fa fa-caret-right"></i></button>
             <br><br>
           </form>

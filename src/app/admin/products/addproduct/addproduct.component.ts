@@ -47,13 +47,19 @@ export class AddproductComponent implements OnInit {
   public fileFlag: boolean = false;
   public filechange = '';
   selectedSubject;
+  errorflag=false;
+  errortitle=[];
+  errorimage=[];
+  errordescription=[];
+  errorprice=[];
+  errordiscount_percent=[];
 
   constructor(  public formbuilder: FormBuilder,
     public router: Router,
     public productservice: ProductsService
     ) { }
 
-    @ViewChild('myForm',{static:false}) public myForm: NgForm;
+    @ViewChild('myForm') public myForm: NgForm;
 
   ngOnInit(): void {
   }
@@ -69,15 +75,61 @@ export class AddproductComponent implements OnInit {
     for (var key in value) {
       formData.append(key, value[key]);
     }
+    
     this.productservice.addproduct(formData).subscribe((data: any) => {
      // this.loader = false;
     //  console.log(data.status == "true");
-      if (data.status == 'true') {
+      if (data['status_code'] == 200) {
             //  this.toastrMessage.showSuccess('Class activity added successfully!');
        this.router.navigate(['../../admin/products']);
-      } else if (data.status == 'false') {
+      } else {
         this.successMessage = false;
+        this.errorflag = true;
+
        // this.toastrMessage.showError('Validation failed!');
+
+
+       if(data['message']['title']){
+        this.errortitle= data['message']['title'][0];
+      }else{
+        this.errortitle =[];
+      }
+
+      if(data['message']['filetoUpload']){
+        this.errorimage = data['message']['filetoUpload'][0];
+      }else{
+
+        this.errorimage=[];
+      }
+
+      if(data['message']['description']){
+        this.errordescription = data['message']['description'][0];
+      }else{
+
+        this.errordescription =[];
+      }
+
+      if(data['message']['price']){
+        this.errorprice = data['message']['price'][0];
+      }else{
+
+        this.errorprice =[];
+      }
+
+
+      if(data['message']['discountpercent']){
+        this.errordiscount_percent = data['message']['discountpercent'][0];
+      }else{
+
+        this.errordiscount_percent =[];
+      }
+
+
+
+   //   console.log(this.errormessage);
+
+
+
       }
       
     }, error => {

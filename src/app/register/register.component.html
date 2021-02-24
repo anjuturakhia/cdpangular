@@ -1,6 +1,15 @@
 
 <div class="loginone-wrapper">
    
+    <div *ngIf="errorflag" class="alert alert-danger" role="alert">
+        
+       <ul> {{errormessageemail}} </ul> 
+       <ul>{{errormessagemobile}}</ul> 
+        <ul>{{errormessagepassword}}</ul>
+
+
+      </div>
+   
     
     <div class="login-content text-center">
         <h2>Customer Register</h2>

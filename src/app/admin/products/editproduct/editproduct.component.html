@@ -12,7 +12,7 @@
     
           <div *ngIf="!loader">
   
-        <form role="form" #myForm="ngForm" (ngSubmit)="save(myForm.value)" accept-charset="UTF-8" novalidate>
+        <form role="form" #myForm="ngForm" (ngSubmit)="save1(myForm.value)" accept-charset="UTF-8" novalidate>
   
           <div class="input-group">
             <input type="hidden" class="form-control" name="id" #id="ngModel" [(ngModel)]="heroes.id">

@@ -2,6 +2,11 @@
 <div class="loginone-wrapper">
    
   
+    <div *ngIf="errorflag" class="alert alert-danger" role="alert">
+        {{errormessage}}
+      </div>
+    
+      
     <div class="login-content text-center">
         <h2>Admin login</h2>
 

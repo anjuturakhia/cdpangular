@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  errorflag = false;
+  errormessage=[];
   constructor(public formBuilder: FormBuilder,public login: LoginService,public router: Router,) { }
 
   ngOnInit() {
@@ -36,11 +38,18 @@ export class LoginComponent implements OnInit {
 
       if(data['status_code'] == 200){
 
+
+        this.errorflag = false;
         localStorage.setItem('token',data['token']);
         localStorage.setItem('role','2');
+        this.router.navigate(['/customer-dashboard'])
 
 
       }else{
+
+        this.errorflag= true;
+        this.errormessage = data['message'];
+
 
 
       }

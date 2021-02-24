@@ -12,6 +12,8 @@ import {Router} from "@angular/router";
 export class AdminloginComponent implements OnInit {
 
   form: FormGroup;
+  errorflag = false;
+  errormessage=[];
   constructor(public formBuilder: FormBuilder,public login: LoginService,public router: Router,) { }
 
   ngOnInit() {
@@ -36,10 +38,14 @@ export class AdminloginComponent implements OnInit {
         localStorage.setItem('token',data['token']);
         localStorage.setItem('role','1');
 
-        this.router.navigate(['admin/dashboard']);
+        this.errorflag = false;
+        this.router.navigate(['admin/products']);
 
 
       }else{
+
+        this.errorflag= true;
+        this.errormessage = data['message'];
 
 
       }

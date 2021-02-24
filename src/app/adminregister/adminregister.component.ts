@@ -11,6 +11,11 @@ import {RegisterService} from '../services/register.service';
 export class AdminregisterComponent implements OnInit {
 
   form: FormGroup;
+  errorflag = false;
+  errormessage=[];
+  errormessageemail=[]
+  errormessagemobile=[];
+  errormessagepassword=[];
   constructor(public formBuilder: FormBuilder,public router: Router,public register: RegisterService) { }
 
 
@@ -33,11 +38,38 @@ export class AdminregisterComponent implements OnInit {
     this.register.register(value).subscribe(data => {
       console.log(data);
 
-          localStorage.setItem('token',data['token']);
-          localStorage.setItem('role','1');
-         //  this.router.navigate(['/dashboard']);
-           this.router.navigate(['admin/dashboard']);
+          if(data['status_code'] == 200){
+
+            localStorage.setItem('token',data['token']);
+            localStorage.setItem('role','1');
+           //  this.router.navigate(['/dashboard']);
+             this.router.navigate(['admin/products']);
+             this.errorflag = false;
  
+             
+          }else{
+
+            this.errorflag=true;
+            // this.errormessage = data['message'];
+            if(data['message']['email']){
+              this.errormessageemail = data['message']['email'][0];
+            }else{
+              this.errormessageemail =[];
+            }
+  
+          
+            if(data['message']['password']){
+              this.errormessagepassword = data['message']['password'][0];
+            }else{
+  
+              this.errormessagepassword =[];
+            }
+  
+            console.log(this.errormessage);
+  
+          }
+
+        
 
     })
 

@@ -2,8 +2,8 @@
 
 <div class="loginone-wrapper">
    
-    <div class="alert alert-primary" role="alert">
-        This is a primary alert—check it out!
+    <div *ngIf="errorflag" class="alert alert-danger" role="alert">
+        {{errormessage}}
       </div>
       
     <div class="login-content text-center">

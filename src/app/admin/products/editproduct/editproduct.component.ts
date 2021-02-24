@@ -71,7 +71,7 @@ export class EditproductComponent implements OnInit {
       this.imageUrl = this.productservice.imageUrl;
     }
 
-    @ViewChild('myForm',{static:false}) public myForm: NgForm;
+    @ViewChild('myForm') public myForm: NgForm;
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -111,7 +111,7 @@ export class EditproductComponent implements OnInit {
   }
 
 
-  save(value){
+  save1(value){
 
 
   this.myForm.value.filetoUpload =this.fileupload;
@@ -170,6 +170,7 @@ export class EditproductComponent implements OnInit {
 onFileChange(file : FileList) {
  
   this.fileupload = file.item(0);
+  this.filetoUpload = file.item(0);
   // console.log(this.fileupload);
 
   //show image preview
